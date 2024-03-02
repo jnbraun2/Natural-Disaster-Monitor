@@ -1,1 +1,105 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+  <title>Data Collector for AGOL</title>
+
+  <!-- Meta for the browser to allow for mobile first design. -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <!-- Importing the css and libraries for esri.js -->
+  <link rel="stylesheet" href="https://js.arcgis.com/4.26/esri/themes/light/main.css" />
+  <script src="https://js.arcgis.com/4.26/"></script>
+
+  <!-- Loading the modules. -->
+  <script>
+    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search", "esri/layers/FeatureLayer" ], 
+    (esriConfig, Map, MapView, Locate, Search, FeatureLayer) => {
+
+      esriConfig.apiKey = "AAPKcf47264e32794af29b8505a640992140dTOZDTXkDMXGQTuCncQfjuHjEesD1DFlJERirFncgdHb7Ok0f1ko4f6m-N_jnQ8N";
+      
+      //Add map.
+      const map = new Map({
+        basemap: "satellite"
+      });
+
+      //Add mapview
+      const view = new MapView({
+        map: map,
+        center: [-104.9903, 39.7392], // Longitude, latitude
+        zoom: 12, // Zoom level
+        container: "viewDiv" // Div element
+      });
+      
+      //Add locate button.
+      const locateBtn = new Locate({
+        view: view
+      });
+
+      // Adds the locate widget to the map with top left position. 
+      view.ui.add(locateBtn, {
+        position: "top-left"
+      });
+      
+      //Adds the search bar.
+      const searchWidget = new Search({
+        view: view
+      });
+      
+      //Adds the search widget to the map with top left position, and below the locate button. 
+      view.ui.add(searchWidget, {
+        position: "top-left",
+        index: 2
+      })
+
+      //Create feature layer of Survey123 points.
+      //const layer = new FeatureLayer({
+      //  url:"https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_a9b18bee27d340f59cc3375fd97b66cf_results/FeatureServer"
+      //});
+
+      //map.add(layer);
+
+    });
+
+  </script>
+
+  <style> 
+    html, 
+    body, 
+    #viewDiv {
+      padding: 0; 
+      margin: 0; 
+      height: 100%; 
+      width: 100; 
+    } 
+
+    .addRecordBtn {
+    position: absolute;
+    z-index: 10;
+    top: 10px;
+    right: 10px;
+    background-color: #0079c1;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    text-decoration: none;
+    }
+  
+    .addRecordBtn:hover {
+      background-color: #005a87;
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="https://arcg.is/1Xru8z"target="_blank" class="addRecordBtn">Add Record</a>
+
+  <div id="viewDiv"></div>
+
+</body>
+</html>
 
