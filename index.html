@@ -50,12 +50,11 @@
       view.ui.add(searchWidget, {
         position: "top-left",
         index: 2
-      })
+      });
 
       //Create feature layer of Survey123 points.
       const layer = new FeatureLayer({
         url:"https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/Natural_Hazard_Monitor_Incident_Form_view/FeatureServer"
-        
       });
 
       map.add(layer);
