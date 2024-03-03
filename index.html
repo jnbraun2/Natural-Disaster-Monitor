@@ -82,7 +82,11 @@
 
       //Add legend widget to the map.
       const legend = new Legend({
-        view: view
+        view: view,
+        layerInfos: [{
+          layer: FeatureLayer,
+          title: "Natural Hazard Incidents"
+        }]
       });
       
       view.ui.add(legend, "bottom-right");
