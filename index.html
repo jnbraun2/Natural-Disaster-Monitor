@@ -13,8 +13,8 @@
 
   <!-- Loading the modules. -->
   <script>
-    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search","esri/widgets/Compass", "esri/widgets/ScaleBar", "esri/layers/FeatureLayer","esri/renderers/UniqueValueRenderer", "esri/widgets/Legend" ], 
-    (esriConfig, Map, MapView, Locate, Search, Compass, ScaleBar, FeatureLayer, UniqueValueRenderer, Legend) => {
+    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search","esri/widgets/Compass", "esri/widgets/ScaleBar", "esri/layers/FeatureLayer","esri/renderers/UniqueValueRenderer", "esri/widgets/Legend", "esri/PopupTemplate" ], 
+    (esriConfig, Map, MapView, Locate, Search, Compass, ScaleBar, FeatureLayer, UniqueValueRenderer, Legend, PopupTemplate) => {
 
       esriConfig.apiKey = "AAPKcf47264e32794af29b8505a640992140dTOZDTXkDMXGQTuCncQfjuHjEesD1DFlJERirFncgdHb7Ok0f1ko4f6m-N_jnQ8N";
       
@@ -123,7 +123,7 @@
         }
       };
 
-      const template = {
+      const popupTemplate = {
         title: "Disaster at {IncidentLocation}"
       };
 
