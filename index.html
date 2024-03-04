@@ -52,19 +52,20 @@
         index: 1
       });
 
-      //Add the compas widget.
+      //Add the compass widget.
       let compass = new Compass({
         view: view
       });
       
-      // Add the compass to the top left corner of the MapView
+      // Add the compass to the top left corner of the MapView.
       view.ui.add(compass, "top-left");
 
       //Add the scale bar to the map.
       const scaleBar = new ScaleBar({
         view: view
       });
-
+    
+      //Add the scale bar to the bottom left corner of the Mapview.
       view.ui.add(scaleBar, {
         position: "bottom-left",
         index: 2
@@ -162,11 +163,11 @@
       };
 
       //Add legend widget to the map.
-      //const legend = new Legend({
-        //view: view,
-      //});
+      const legend = new Legend({
+        view: view,
+      });
       
-      //view.ui.add(legend, "bottom-right");
+      view.ui.add(legend, "bottom-right");
 
     });
 
