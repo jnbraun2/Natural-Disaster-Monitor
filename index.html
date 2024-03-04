@@ -13,8 +13,8 @@
 
   <!-- Loading the modules. -->
   <script>
-    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search", "esri/layers/FeatureLayer","esri/renderers/UniqueValueRenderer", "esri/widgets/Legend" ], 
-    (esriConfig, Map, MapView, Locate, Search, FeatureLayer, UniqueValueRenderer, Legend) => {
+    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search", "esri/widgets/ScaleBar", "esri/layers/FeatureLayer","esri/renderers/UniqueValueRenderer", "esri/widgets/Legend" ], 
+    (esriConfig, Map, MapView, Locate, Search, ScaleBar, FeatureLayer, UniqueValueRenderer, Legend) => {
 
       esriConfig.apiKey = "AAPKcf47264e32794af29b8505a640992140dTOZDTXkDMXGQTuCncQfjuHjEesD1DFlJERirFncgdHb7Ok0f1ko4f6m-N_jnQ8N";
       
@@ -50,6 +50,16 @@
       view.ui.add(searchWidget, {
         position: "bottom-left",
         index: 2
+      });
+
+      //Add thhe scale bar to the map.
+      const scaleBar = new ScaleBar({
+        view: view
+      });
+
+      view.ui.add(scaleBar, {
+        position: "bottom-left",
+        index: 0
       });
 
       //Add unique values renderer for points.
