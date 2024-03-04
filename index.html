@@ -53,37 +53,37 @@
       });
 
       //Add unique values renderer for points.
-      const renderer = {
-        type: "unique-value",  
-        field: "DisGroup",
-        uniqueValueInfos: [
-          {
-            value: "Clim",
-            symbol: {
-              type: "simple-fill", 
-              color: "red"
-            }
-          }, {
-            value: "Met",
-            symbol: {
-              type: "simple-fill", 
-              color: "purple"
-            }
-          }, {
-            value: "Hydro",
-            symbol: {
-              type: "simple-fill",
-              color: "blue"
-            }
-          }, {
-            value: "Geo",
-            symbol: {
-              type: "simple-fill",
-              color: "green"
-            }
-          }  
-        ]
-      };
+      //const renderer = {
+        //type: "unique-value",  
+        //field: "DisGroup",
+        //uniqueValueInfos: [
+          //{
+            //value: "Clim",
+            //symbol: {
+              //type: "simple-fill", 
+              //color: "red"
+            //}
+          //}, {
+            //value: "Met",
+            //symbol: {
+              //type: "simple-fill", 
+              //color: "purple"
+            //}
+          //}, {
+            //value: "Hydro",
+            //symbol: {
+              //type: "simple-fill",
+              //color: "blue"
+            //}
+          //}, {
+            //value: "Geo",
+            //symbol: {
+              //type: "simple-fill",
+              //color: "green"
+            //}
+          //}  
+        //]
+      //};
 
       //Add labels to identify the disaster incidents.
       const disasterLabels = {
@@ -108,7 +108,7 @@
       //Create feature layer of Survey123 points.
       const layer = new FeatureLayer({
         url:"https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_bdaccb60f2054ef3b6e2d5fa5e665ecc_results/FeatureServer",
-        renderer: renderer,
+        //renderer: renderer,
         labelingInfo: [disasterLabels]
       });
 
