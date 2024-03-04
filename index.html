@@ -13,8 +13,8 @@
 
   <!-- Loading the modules. -->
   <script>
-    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search", "esri/layers/FeatureLayer","esri/widgets/Legend" ], 
-    (esriConfig, Map, MapView, Locate, Search, FeatureLayer, Legend) => {
+    require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search", "esri/layers/FeatureLayer","esri/renderers/UniqueValueRenderer", "esri/widgets/Legend" ], 
+    (esriConfig, Map, MapView, Locate, Search, FeatureLayer, UniqueValueRenderer, Legend) => {
 
       esriConfig.apiKey = "AAPKcf47264e32794af29b8505a640992140dTOZDTXkDMXGQTuCncQfjuHjEesD1DFlJERirFncgdHb7Ok0f1ko4f6m-N_jnQ8N";
       
@@ -79,6 +79,38 @@
       });
 
       map.add(layer);
+
+      //Add unique values renderer for points.
+      layer.renderer = {
+        type: "unique-value",  
+        field: "DisGroup",
+        defaultSymbol: { type: "simple-fill" },  
+        uniqueValueInfos: [{
+          value: "Clim",
+          symbol: {
+            type: "simple-fill", 
+            color: "red"
+          }
+        }, {
+          value: "Met",
+          symbol: {
+            type: "simple-fill", 
+            color: "purple"
+          }
+        }, {
+          value: "Hydro",
+          symbol: {
+            type: "simple-fill",
+            color: "blue"
+          }
+        }, {
+          value: "Geo",
+          symbol: {
+            type: "simple-fill",
+            color: "green"
+          }
+        }]
+      };
 
       //Add legend widget to the map.
       const legend = new Legend({
