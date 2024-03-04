@@ -52,26 +52,6 @@
         index: 2
       });
 
-      //Add labels to identify the disaster incidents.
-      const disasterLabels = {
-        symbol: {
-          type: "text",
-          color: "#FFFFFF",
-          haloColor: "blue",
-          haloSize: "2px",
-          font: {
-            "family": "Arial",
-            "style": "normal",
-            "weight": "bold"
-          }
-        },
-
-        labelPlacement: "above-center",
-        labelExpressionInfo: {
-          expression: "$feature.DisType"
-        }
-      };
-
       //Add unique values renderer for points.
       const renderer = {
         type: "unique-value",  
@@ -105,11 +85,31 @@
         ]
       };
 
+      //Add labels to identify the disaster incidents.
+      const disasterLabels = {
+        symbol: {
+          type: "text",
+          color: "#FFFFFF",
+          haloColor: "blue",
+          haloSize: "2px",
+          font: {
+            "family": "Arial",
+            "style": "normal",
+            "weight": "bold"
+          }
+        },
+
+        labelPlacement: "above-center",
+        labelExpressionInfo: {
+          expression: "$feature.DisType"
+        }
+      };
+
       //Create feature layer of Survey123 points.
       const layer = new FeatureLayer({
         url:"https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_bdaccb60f2054ef3b6e2d5fa5e665ecc_results/FeatureServer",
-        labelingInfo: [disasterLabels],
-        renderer: renderer
+        renderer: renderer,
+        labelingInfo: [disasterLabels]
       });
 
       map.add(layer);
