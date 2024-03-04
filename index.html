@@ -72,16 +72,8 @@
         }
       };
 
-      //Create feature layer of Survey123 points.
-      const layer = new FeatureLayer({
-        url:"https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_bdaccb60f2054ef3b6e2d5fa5e665ecc_results/FeatureServer",
-        labelingInfo: [disasterLabels]
-      });
-
-      map.add(layer);
-
       //Add unique values renderer for points.
-      layer.renderer = {
+      const renderer = {
         type: "unique-value",  
         field: "DisGroup",
         defaultSymbol: { type: "simple-fill" },  
@@ -111,6 +103,15 @@
           }
         }]
       };
+
+      //Create feature layer of Survey123 points.
+      const layer = new FeatureLayer({
+        url:"https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_bdaccb60f2054ef3b6e2d5fa5e665ecc_results/FeatureServer",
+        labelingInfo: [disasterLabels],
+        renderer = renderer
+      });
+
+      map.add(layer);
 
       //Add legend widget to the map.
       const legend = new Legend({
