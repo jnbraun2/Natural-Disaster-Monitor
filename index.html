@@ -27,7 +27,7 @@
       const view = new MapView({
         map: map,
         center: [-104.9903, 39.7392], // Longitude, latitude
-        zoom: 8, // Zoom level
+        zoom: 5, // Zoom level
         container: "viewDiv" // Div element
       });
       
@@ -115,6 +115,10 @@
         }
       };
 
+      const template = {
+        title: "Disaster at {IncidentLocation}"
+      };
+
       //Create feature layer of Survey123 points.
       const layer = new FeatureLayer({
         url:"https://services.arcgis.com/HRPe58bUyBqyyiCt/arcgis/rest/services/survey123_bdaccb60f2054ef3b6e2d5fa5e665ecc_results/FeatureServer",
@@ -130,10 +134,6 @@
       //});
       
       //view.ui.add(legend, "bottom-right");
-
-      const template = {
-        title: "Disaster at {IncidentLocation}"
-      };
 
     });
 
