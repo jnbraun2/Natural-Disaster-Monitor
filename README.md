@@ -17,4 +17,4 @@ Once the form is filled out, a point will be added to the map in real time. This
 
 The secondary functionality of the application allows the user to click or tap on any point present on the map. This will display a pop-up containing all of the relevant information for that particular disaster. 
 
-Note: A legend is not including in this version of the application because it is intended to be mobile first. The legend widget crowds the UI, and makes data hard to see on-screen. In future versions (desktop application etc), a legend will be added. Each feature contained in the map is labeled with identifying information so that no functionality that a legend provides is lost. 
+Note: A legend is not including in this version of the application because it is intended to be mobile first. The legend widget crowds the UI, and makes data hard to see on-screen. In future versions (desktop application etc), a legend will be added. Each feature contained in the map is labeled with identifying information so that any functionality that a legend provides is lost. 
