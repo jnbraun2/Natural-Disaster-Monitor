@@ -16,7 +16,7 @@
     require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search","esri/widgets/Compass", "esri/widgets/ScaleBar", "esri/layers/FeatureLayer","esri/renderers/UniqueValueRenderer", "esri/widgets/Legend", "esri/PopupTemplate" ], 
     (esriConfig, Map, MapView, Locate, Search, Compass, ScaleBar, FeatureLayer, UniqueValueRenderer, Legend, PopupTemplate) => {
 
-      esriConfig.apiKey = "AAPKcf47264e32794af29b8505a640992140dTOZDTXkDMXGQTuCncQfjuHjEesD1DFlJERirFncgdHb7Ok0f1ko4f6m-N_jnQ8N";
+      esriConfig.apiKey = "AAPK757f4438013a4af08cc1a774d3788db9qSAv4TlOSeFWIJ1OIl6RyxaLb7U5rO_-tyazPZqw99vrEKIHVQ3Twlh9HvLom22T";
       
       //Add map.
       const map = new Map({
@@ -170,6 +170,11 @@
       
       //view.ui.add(legend, "bottom-right");
 
+
+
+
+
+
     });
 
   </script>
@@ -203,9 +208,45 @@
       background-color: #005a87;
     }
 
+
+
+    #info-container {
+        display: none;
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+
   </style>
 </head>
+
+
 <body>
+  <button id="info-btn">Show Introduction</button>
+  <div id="info-container">
+      <h2>Web App Introduction</h2>
+      <p>This web app is designed to help users with...</p>
+  </div>
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var infoBtn = document.getElementById('info-btn');
+          var infoContainer = document.getElementById('info-container');
+
+          infoBtn.addEventListener('click', function() {
+              // Toggle the display of the info container
+              if (infoContainer.style.display === 'none' || infoContainer.style.display === '') {
+                  infoContainer.style.display = 'block';
+                  infoBtn.textContent = 'Hide Introduction';
+              } else {
+                  infoContainer.style.display = 'none';
+                  infoBtn.textContent = 'Show Introduction';
+              }
+          });
+      });
+  </script>
 
   <a href="https://arcg.is/1TvSez0"target="_blank" class="addRecordBtn">Report Disaster</a>
 
