@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang = "en">
 <head>
-  <title>Natural Hazard Monitor</title>
+  <title>Natural Hazard Monitor Test</title>
 
   <!-- Meta for the browser to allow for mobile first design. -->
   <meta charset="UTF-8" />
@@ -16,7 +16,7 @@
     require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search","esri/widgets/Compass", "esri/widgets/ScaleBar", "esri/layers/FeatureLayer","esri/renderers/UniqueValueRenderer", "esri/widgets/Legend", "esri/PopupTemplate" ], 
     (esriConfig, Map, MapView, Locate, Search, Compass, ScaleBar, FeatureLayer, UniqueValueRenderer, Legend, PopupTemplate) => {
 
-      esriConfig.apiKey = "AAPKcf47264e32794af29b8505a640992140dTOZDTXkDMXGQTuCncQfjuHjEesD1DFlJERirFncgdHb7Ok0f1ko4f6m-N_jnQ8N";
+      esriConfig.apiKey = "AAPK757f4438013a4af08cc1a774d3788db9qSAv4TlOSeFWIJ1OIl6RyxaLb7U5rO_-tyazPZqw99vrEKIHVQ3Twlh9HvLom22T";
       
       //Add map.
       const map = new Map({
@@ -170,6 +170,25 @@
       
       //view.ui.add(legend, "bottom-right");
 
+      document.addEventListener('DOMContentLoaded', function() {
+          var infoBtn = document.getElementById('info-btn');
+          var infoContainer = document.getElementById('info-container');
+
+          infoBtn.addEventListener('click', function() {
+              // Toggle the display of the info container
+              if (infoContainer.style.display === 'none' || infoContainer.style.display === '') {
+                  infoContainer.style.display = 'block';
+                  infoBtn.textContent = 'Hide Introduction';
+              } else {
+                  infoContainer.style.display = 'none';
+                  infoBtn.textContent = 'Show Introduction';
+              }
+          });
+      });
+
+
+
+
     });
 
   </script>
@@ -203,9 +222,75 @@
       background-color: #005a87;
     }
 
+    body {
+        background-color: #e5e5e5b7; /* Choose your desired background color */
+    }
+
+    #info-btn {
+        padding: 10px 20px; /* Adjust padding to make the button larger */
+        font-size: 16px; /* Adjust font size for the button text */
+        background-color: #0079c1; /* Add background color to the button */
+        color: #fff; /* Set text color to white */
+        border: none; /* Remove border */
+        border-radius: 5px; /* Add border radius for rounded corners */
+        cursor: pointer; /* Change cursor to pointer on hover */
+        margin-top: 5px; /* Add margin-top to create space above the map */
+    }
+
+
+    #info-btn:hover {
+        background-color: #005a87; /* Darker background color on hover */
+    }
+
+    #info-container {
+        display: none;
+        margin-top: 5px;
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #d0d8deb7;
+    }
+
+    p {
+      margin-top: 5px; /* Remove margin from the top */
+      margin-bottom: 5px; /* Set margin at the bottom */
+      padding: 0; /* Remove padding */
+      font-size: 14px; /* Set font size */
+    }
+
+    #viewDiv {
+        margin-top: 5px; /* Add margin-top to create space above the map */
+    }
+
+
   </style>
 </head>
+
+
 <body>
+  <button id="info-btn">Show Introduction</button>
+  <div id="info-container">
+      <!-- Add your background information here -->
+      <p>The Natural Disaster Monitor (NDM) is an application that uses ArcGIS Maps SDK for JavaScript and Survey123. It allows for real time submission of disaster occurrences through user submitted forms. First responders, land managers, surveyors, scientists, engineers, and other environmental professionals will be able to catalogue disasters in real time. It has the functionality to log disasters, distinguish basic disaster categories (hydrological, meteorological, climatological, and geophysical), and the feature layer produced through this application can be used to perform spatial analysis to understand the freequency of disaster types, and to understand which areas are more prone to certain types of disasters. The categorization of disasters in the database follows a similar format to the EM-DAT (Emergency Events Database) and the Geocoded Disasters Dataset (GDIS). The EM-DAT is a database that catalogues every major natural disaster around the world, with basic information such as death toll, monetary damage, injury total, etc. The Geocoded Disasters Dataset (GDIS) is a subset of EM-DAT that adds location information about a disaster.</p>
+  </div>
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          var infoBtn = document.getElementById('info-btn');
+          var infoContainer = document.getElementById('info-container');
+
+          infoBtn.addEventListener('click', function() {
+              // Toggle the display of the info container
+              if (infoContainer.style.display === 'none' || infoContainer.style.display === '') {
+                  infoContainer.style.display = 'block';
+                  infoBtn.textContent = 'Hide Introduction';
+              } else {
+                  infoContainer.style.display = 'none';
+                  infoBtn.textContent = 'Show Introduction';
+              }
+          });
+      });
+  </script>
 
   <a href="https://arcg.is/1TvSez0"target="_blank" class="addRecordBtn">Report Disaster</a>
 
